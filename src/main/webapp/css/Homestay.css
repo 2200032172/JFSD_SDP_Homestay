@@ -1,0 +1,221 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body Styling */
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    color: #333;
+}
+
+/* Header (Navbar) */
+header {
+    background-color: #333;
+    color: white;
+    padding: 10px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header .logo h1 {
+    margin-left: 20px;
+    font-size: 1.8rem;
+    color: #fff;
+}
+
+header nav ul {
+    list-style: none;
+    display: flex;
+    margin-right: 20px;
+}
+
+header nav ul li {
+    margin: 0 15px;
+}
+
+header nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 1rem;
+    transition: color 0.3s ease;
+}
+
+header nav ul li a:hover {
+    color: #4CAF50;
+}
+
+/* Hero Section */
+.hero {
+    position: relative;
+    background-size: cover;
+    background-position: center;
+    height: 600px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    filter: brightness(100%); /* Darken the image slightly */
+}
+
+.hero .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5); /* Adjust overlay for better contrast */
+}
+
+.hero-text {
+    position: relative;
+    color: white;
+    text-align: left;
+    padding: 30px;
+}
+
+.hero-text h2 {
+    font-size: 3rem;
+    margin-bottom: 10px;
+}
+
+.hero-text p {
+    font-size: 1.2rem;
+}
+
+/* Booking Form Section */
+.booking-form {
+    padding: 40px 20px;
+    background-color: #f9f9f9;
+    position: relative;
+    top: -60px; /* Start below the hero section */
+    margin-bottom: 50px;
+    max-width: 1000px;
+    margin: 0 auto;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Add shadow for card-like effect */
+    border-radius: 8px; /* Rounded corners */
+}
+
+.booking-form h3 {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 2rem;
+}
+
+.booking-form form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.booking-form .input-group {
+    display: flex;
+    gap: 10px;
+}
+
+.booking-form .input-group input,
+.booking-form .input-group select {
+    width: 48%;
+    padding: 10px;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.booking-form .btn {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+}
+
+.booking-form .btn:hover {
+    background-color: #45a049;
+}
+
+/* Homestay Cards Section */
+.homestay-cards {
+    padding: 50px 20px;
+    background-color: #fff;
+}
+
+.homestay-cards .container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.homestay-cards h3 {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 2rem;
+}
+
+.homestay-cards .card-row {
+    display: flex;
+    gap: 25px;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.homestay-cards .card {
+    background-color: #fff;
+    width: 30%;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Add shadow for card-like effect */
+}
+
+.homestay-cards .card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.homestay-cards .card-content {
+    padding: 15px;
+}
+
+.homestay-cards .card h4 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}
+
+.homestay-cards .card p {
+    font-size: 1rem;
+    color: #666;
+}
+
+.homestay-cards .card .price {
+    font-size: 1.2rem;
+    color: #4CAF50;
+    margin-top: 10px;
+}
+
+.homestay-cards .card .btn {
+    background-color: #4CAF50;
+    color: white;
+    padding: 8px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+}
+
+.homestay-cards .card .btn:hover {
+    background-color: #45a049;
+}
+
+/* Footer Styling */
+footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+}

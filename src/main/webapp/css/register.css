@@ -1,0 +1,74 @@
+/* Full-page background image */
+body {
+    background-image: url('${pageContext.request.contextPath}/images/Clogin.jpg');
+    background-size: cover;
+    background-position: center;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+}
+
+/* Header styling */
+header {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    z-index: 10; /* Keeps the logo above other content */
+}
+
+.logo h1 {
+    font-size: 36px;
+    color: #fff;
+    margin: 0;
+}
+
+/* Registration container styling */
+.registration-container {
+    background-color: rgba(255, 255, 255, 0.9); /* Slightly transparent */
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    width: 300px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 5; /* Makes sure it appears above the background */
+}
+
+/* Form input and button styling */
+label, input, button {
+    width: 100%;
+    margin-bottom: 1rem;
+}
+
+input, button {
+    padding: 0.5rem;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+}
+
+button {
+    background-color: #9b6215;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #8a5413;
+}
+
+/* Heading for the registration form */
+h2 {
+    margin-bottom: 1rem;
+    color: #333;
+}
+
+/* Success/Error message */
+.registration-container div p {
+    margin-top: 10px;
+    font-size: 14px;
+}
