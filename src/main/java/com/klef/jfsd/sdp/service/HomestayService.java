@@ -40,6 +40,26 @@ import java.util.UUID;
 	        Files.write(path, file.getBytes());
 	        return "/uploads/" + filename;
 	    }
+	    public void deleteHomestay(Long id) {
+	        homestayRepository.deleteById(id);
+	    }
+
+	    public Homestay updateHomestay(Long id, String name, String description, Double price, String place, MultipartFile imageFile) throws IOException {
+	        Homestay homestay = homestayRepository.findById(id)
+	            .orElseThrow(() -> new IllegalArgumentException("Homestay not found"));
+
+	        homestay.setName(name);
+	        homestay.setDescription(description);
+	        homestay.setPrice(price);
+	        homestay.setPlace(place);
+
+	        if (imageFile != null && !imageFile.isEmpty()) {
+	            String imagePath = saveImage(imageFile);
+	            homestay.setImagePath(imagePath);
+	        }
+	        return homestayRepository.save(homestay);
+	    }
+
 	}
 
 

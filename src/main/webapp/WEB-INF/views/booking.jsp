@@ -1,119 +1,117 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Booking Confirmation</title>
+    <title>Payment Form</title>
     <style>
-        /* Fullscreen Background Image */
+        /* General Styles */
         body {
-            background-image: url('${pageContext.request.contextPath}/images/homestay.jpg');
-            background-size: cover;
-            background-position: center;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 0;
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 100vh;
-            margin: 0;
-            color: #fff;
-            font-family: Arial, sans-serif;
+            min-height: 100vh;
         }
 
-        /* Background overlay to dull the image */
-        .background-overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
+        /* Form Container */
+        .form-container {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
             width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.5);
-            z-index: 1;
+            max-width: 400px;
         }
 
-        /* Centered Content Container */
-        .booking-message {
-            position: relative;
-            z-index: 2;
-            background-color: rgba(0, 0, 0, 0.6); /* Semi-transparent overlay */
-            padding: 2rem;
-            border-radius: 15px;
+        /* Header Style */
+        h2 {
             text-align: center;
+            color: #333;
+            margin-bottom: 20px;
         }
 
-        .booking-message h1 {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
+        /* Form Group Styles */
+        .form-group {
+            margin-bottom: 20px;
         }
 
-        .booking-message p {
-            font-size: 1.2rem;
+        .form-group label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 5px;
+            color: #555;
         }
 
-        /* Navbar styling */
-        header {
-            position: absolute;
-            top: 0;
+        .form-group input {
             width: 100%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 1rem;
-            background-color: rgba(0, 0, 0, 0.7);
-            z-index: 3;
-        }
-
-        .logo h1 {
-            color: #fff;
-            font-size: 1.5rem;
-            margin: 0;
-        }
-
-        nav ul {
-            list-style: none;
-            display: flex;
-            gap: 1.5rem;
-            margin: 0;
-            padding: 0;
-        }
-
-        nav ul li a {
-            color: #fff;
-            text-decoration: none;
-            font-size: 1rem;
-            padding: 0.5rem 1rem;
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ddd;
             border-radius: 5px;
+            transition: all 0.3s ease;
         }
 
-        nav ul li a:hover {
-            background-color: rgba(255, 255, 255, 0.2);
+        .form-group input:focus {
+            border-color: #007bff;
+            outline: none;
+            box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+        }
+
+        /* Button Styles */
+        .submit-btn {
+            width: 100%;
+            padding: 12px;
+            font-size: 16px;
+            font-weight: bold;
+            color: white;
+            background-color: #007bff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .submit-btn:hover {
+            background-color: #0056b3;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 480px) {
+            .form-container {
+                padding: 20px;
+            }
+
+            .submit-btn {
+                padding: 10px;
+            }
         }
     </style>
 </head>
 <body>
-    <!-- Background Overlay -->
-    <div class="background-overlay"></div>
-
-    <!-- Navbar -->
-    <header>
-        <div class="logo">
-            <h1>TripBliss</h1>
-        </div>
-        <nav>
-            <ul>
-				<li><a href="<c:url value='/homestay'/>">Homestays</a></li>
-				                <li><a href="<c:url value='/tourism'/>">Tourism</a></li>
-				                <li><a href="<c:url value='/guide'/>">LocalGuide</a></li>
-				                <li><a href="<c:url value='/about'/>">About Us</a></li>
-				                <li><a href="<c:url value='/login'/>">LogOut</a></li>
-            </ul>
-        </nav>
-    </header>
-
-    <!-- Centered Booking Message -->
-    <div class="booking-message">
-        <h1>Booking Request Sent</h1>
-        <p>Your booking request is being processed. We will notify you shortly.</p>
+    <div class="form-container">
+        <h2>Payment Form</h2>
+        <form action="ScanPage.jsp" method="post">
+            <div class="form-group">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" placeholder="Enter your name" required>
+            </div>
+            <div class="form-group">
+                <label for="amount">Amount:</label>
+                <input type="number" id="amount" name="amount" placeholder="Enter the amount" required>
+            </div>
+            <div class="form-group">
+                <label for="phno">Phone Number:</label>
+                <input type="text" id="phno" name="phno" placeholder="Enter your phone number" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" placeholder="Enter your email address" required>
+            </div>
+            <button type="submit" class="submit-btn">Proceed to Scan</button>
+        </form>
     </div>
 </body>
 </html>

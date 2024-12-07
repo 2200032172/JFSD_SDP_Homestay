@@ -8,7 +8,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Local Guides</title>
     <link rel="stylesheet" href="<c:url value='/css/localguide.css'/>">
-    
 </head>
 <body>
     <!-- Navbar -->
@@ -28,8 +27,7 @@
     </header>
 
     <!-- Hero Section -->
-	<section class="hero" style="background-image: url('<c:url value="/images/guide.jpg" />');">
-    <section class="hero">
+    <section class="hero" style="background-image: url('<c:url value="/images/guide.jpg" />');">
         <div class="overlay"></div>
         <div class="hero-text">
             <h2>Explore the Best Local Guides</h2>
@@ -37,26 +35,50 @@
         </div>
     </section>
 
+    <!-- Search Section -->
+    <section class="search-section">
+        <div class="container">
+            <input type="text" id="searchBar" placeholder="Search for a place..." onkeyup="filterCards()" />
+        </div>
+    </section>
+
     <!-- Local Guides Section -->
     <section class="guide-cards">
         <div class="container">
             <h3>Local Guides</h3>
-            <div class="card-row">
+            <div class="card-row" id="guideCards">
                 <c:forEach var="localGuide" items="${localGuides}">
-                    <div class="card">
+                    <div class="card" data-place="${localGuide.placesIncluded}">
                         <img src="${localGuide.imagePath}" alt="Local Guide">
                         <div class="card-content">
                             <h4>${localGuide.name}</h4>
                             <p>${localGuide.description}</p>
                             <p>Places: ${localGuide.placesIncluded}</p>
                             <p>Price: $${localGuide.price}</p>
-                            <button class="btn" onclick="window.location.href='/details/${localGuide.id}'">View Details</button>
+                            
                         </div>
                     </div>
                 </c:forEach>
             </div>
         </div>
     </section>
+
+    <!-- JavaScript -->
+    <script>
+        function filterCards() {
+            const searchInput = document.getElementById('searchBar').value.toLowerCase();
+            const cards = document.querySelectorAll('.guide-cards .card');
+
+            cards.forEach(card => {
+                const place = card.getAttribute('data-place').toLowerCase();
+                if (place.includes(searchInput)) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+    </script>
 
     <!-- Footer -->
     <footer>

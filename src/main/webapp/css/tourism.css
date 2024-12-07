@@ -86,6 +86,27 @@ header nav ul li a:hover {
     font-size: 1.2rem;
 }
 
+.search-section {
+    background-color: #f9f9f9; /* Light background for visibility */
+    padding: 15px 0;
+    text-align: center;
+    border-bottom: 1px solid #ddd;
+}
+
+.search-section .container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+#searchBar {
+    width: 100%;
+    max-width: 600px;
+    padding: 10px 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
 /* Tourism Cards Section */
 .tourism-cards {
     padding: 50px 20px;

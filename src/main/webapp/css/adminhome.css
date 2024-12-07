@@ -148,6 +148,28 @@ header nav ul li a:hover {
     margin: 20px;
 }
 
+        /* Search Section Styles */
+.search-section {
+    background-color: #f9f9f9; /* Light background for visibility */
+    padding: 15px 0;
+    text-align: center;
+    border-bottom: 1px solid #ddd;
+}
+
+.search-section .container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+#searchBar {
+    width: 100%;
+    max-width: 600px;
+    padding: 10px 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
 /* Homestay Card styling */
 .card {
     display: flex;
@@ -185,4 +207,51 @@ header nav ul li a:hover {
     color: #555;
     white-space: normal; /* Allow text to wrap normally */
     overflow-wrap: break-word; /* Ensure long words break properly */
+}
+
+/* General Button Styles */
+button {
+    padding: 10px 15px;
+    font-size: 14px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+/* Delete Button Styles */
+button[type="submit"] {
+    background-color: #e74c3c; /* Red */
+    color: white;
+}
+
+button[type="submit"]:hover {
+    background-color: #c0392b; /* Darker Red */
+    transform: scale(1.05);
+}
+
+/* Update Button Styles */
+button[onclick^="openUpdateModal"] {
+    background-color: #3498db; /* Blue */
+    color: white;
+    margin-left: 10px; /* Adds spacing between Delete and Update buttons */
+}
+
+button[onclick^="openUpdateModal"]:hover {
+    background-color: #2980b9; /* Darker Blue */
+    transform: scale(1.05);
+}
+
+/* Card Container for Buttons */
+.card {
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 15px;
+    margin: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.card button {
+    margin-top: 10px;
+    display: inline-block;
 }

@@ -57,21 +57,61 @@
     </div>
 
     <!-- Homestays Display -->
-    <div class="homestays-container">
-        <h3>Registered Homestays</h3>
-		<c:forEach var="homestay" items="${homestays}">
+	<div class="homestays-container">
+	    <h3>Registered Homestays</h3>
+	    <c:forEach var="homestay" items="${homestays}">
+	        <div class="card">
+	            <img src="${homestay.imagePath}" alt="${homestay.name}" style="width: 200px; height: auto;">
+	            <h3>${homestay.name}</h3>
+	            <p>${homestay.description}</p>
+	            <p><strong>Price:</strong> ₹${homestay.price}</p>
+	            <p><strong>Location:</strong> ${homestay.place}</p>
+	            
+	            <!-- Delete Button -->
+	            <form action="<c:url value='/deleteHomestay'/>" method="post">
+	                <input type="hidden" name="id" value="${homestay.id}">
+	                <button type="submit">Delete</button>
+	            </form>
 
-            <div class="card">
-				<img src="${homestay.imagePath}" alt="${homestay.name}" style="width: 200px; height: auto;">
+	            <!-- Update Button -->
+	            <button onclick="openUpdateModal(${homestay.id}, '${homestay.name}', '${homestay.description}', ${homestay.price}, '${homestay.place}', '${homestay.imagePath}')">Update</button>
+	        </div>
+	    </c:forEach>
+	</div>
+	
+	<div id="updateHomestayModal" class="modal">
+	    <div class="modal-content">
+	        <span class="close" onclick="document.getElementById('updateHomestayModal').style.display='none'">&times;</span>
+	        <h3>Update Homestay</h3>
+	        <form action="<c:url value='/updateHomestay'/>" method="post" enctype="multipart/form-data">
+	            <input type="hidden" id="updateId" name="id">
+	            
+	            <label for="updateName">Homestay Name:</label>
+	            <input type="text" id="updateName" name="name" required>
+	            
+	            <label for="updateDescription">Description:</label>
+	            <textarea id="updateDescription" name="description" rows="4" required></textarea>
+	            
+	            <label for="updatePrice">Price:</label>
+	            <input type="number" id="updatePrice" name="price" step="0.01" required>
+	            
+	            <label for="updatePlace">Place:</label>
+	            <input type="text" id="updatePlace" name="place" required>
+	            
+	            <label for="updateImage">Upload New Image:</label>
+	            <input type="file" id="updateImage" name="image" accept="image/*">
+	            
+	            <button type="submit">Save</button>
+	        </form>
+	    </div>
+	</div>
 
-                <h3>${homestay.name}</h3>
-                <p>${homestay.description}</p>
-                <p><strong>Price:</strong> ₹${homestay.price}</p>
-                <p><strong>Location:</strong> ${homestay.place}</p>
-            </div>
-        </c:forEach>
-    </div>
 
-    <script src="<c:url value='/js/admin.js'/>"></script>
+
+
+    <script src="<c:url value='/js/admin.js'/>">
+		
+		  
+	</script>
 </body>
 </html>

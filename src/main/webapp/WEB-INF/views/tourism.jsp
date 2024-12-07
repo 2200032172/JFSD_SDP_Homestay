@@ -35,27 +35,49 @@
         </div>
     </section>
 
+    <!-- Search Section -->
+    <section class="search-section">
+        <div class="container">
+            <input type="text" id="searchBar" placeholder="Search for a place..." onkeyup="filterCards()" />
+        </div>
+    </section>
+
     <!-- Tourism Cards Section -->
     <section class="tourism-cards">
         <div class="container">
             <h3>Tourism Places</h3>
-            <div class="card-row">
+            <div class="card-row" id="tourismCards">
                 <c:forEach var="tourismPlace" items="${tourismPlaces}">
-                    <div class="card">
+                    <div class="card" data-place="${tourismPlace.name}">
                         <img src="${tourismPlace.imagePath}" alt="Tourism Image">
                         <div class="card-content">
                             <h4>${tourismPlace.name}</h4>
                             <p>${tourismPlace.description}</p>
-							<p>${tourismPlace.bestTime}</p>
-                            <button type="button" class="btn" onclick="window.location.href='/details/${tourismPlace.id}'">
-                                View Details
-                            </button>
+                            <p>${tourismPlace.bestTime}</p>
+                            
                         </div>
                     </div>
                 </c:forEach>
             </div>
         </div>
     </section>
+
+    <!-- JavaScript for Search Functionality -->
+    <script>
+        function filterCards() {
+            const searchInput = document.getElementById('searchBar').value.toLowerCase();
+            const cards = document.querySelectorAll('.tourism-cards .card');
+
+            cards.forEach(card => {
+                const place = card.getAttribute('data-place').toLowerCase();
+                if (place.includes(searchInput)) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+    </script>
 
     <!-- Footer -->
     <footer>

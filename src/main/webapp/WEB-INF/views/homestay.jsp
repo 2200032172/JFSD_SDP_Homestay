@@ -73,20 +73,24 @@
             </form>
         </div>
     </section>
+	<section class="search-section">
+	    <div class="container">
+	        <input type="text" id="searchBar" placeholder="Search for a place..." onkeyup="filterCards()" />
+	    </div>
+	</section>
 
 	<!-- Homestay Cards Section -->
 	<section class="homestay-cards">
 	    <div class="container">
 	        <h3>Our Homestays</h3>
-	        <div class="card-row">
+	        <div class="card-row" id="homestayCards">
 	            <c:forEach var="homestay" items="${homestays}">
-	                <div class="card">
-	                    <!-- Use image_path here instead of image_url -->
+	                <div class="card" data-place="${homestay.place}">
 	                    <img src=".${homestay.imagePath}" alt="Homestay Image">
 	                    <div class="card-content">
 	                        <h4>${homestay.name}</h4>
 	                        <p>${homestay.description}</p>
-							<p>${homestay.place}</p>
+	                        <p>${homestay.place}</p>
 	                        <p class="price">₹${homestay.pricePerNight}</p>
 	                        <button type="button" class="btn" onclick="window.location.href='/booking'">Book now</button>
 	                    </div>
@@ -95,6 +99,22 @@
 	        </div>
 	    </div>
 	</section>
+	
+	<script>
+	    function filterCards() {
+	        const searchInput = document.getElementById('searchBar').value.toLowerCase();
+	        const cards = document.querySelectorAll('.homestay-cards .card');
+
+	        cards.forEach(card => {
+	            const place = card.getAttribute('data-place').toLowerCase();
+	            if (place.includes(searchInput)) {
+	                card.style.display = 'block';
+	            } else {
+	                card.style.display = 'none';
+	            }
+	        });
+	    }
+	</script>
 
 
 
